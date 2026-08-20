@@ -159,79 +159,126 @@
     .nav-btn svg { width: 16px; height: 16px; fill: white; flex-shrink: 0; }
 
     /* HERO */
-    .hero {
+    .herox {
+      position: relative;
       min-height: calc(100svh - 104px);
       display: flex;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      padding: 48px 24px 44px;
-      position: relative;
-      overflow: hidden;
-      background: radial-gradient(circle at 50% 0%, var(--creme) 0%, #ffffff 62%);
+      padding: 48px;
+      background: url('bg-desktop.webp') right 28% / cover no-repeat, var(--branco);
     }
 
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 680px;
+    .herox-inner {
+      max-width: 1180px;
       width: 100%;
-      display: flex;
-      flex-direction: column;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 40px;
       align-items: center;
     }
 
+    .herox-left { min-width: 0; }
+
     .hero-logo {
-      width: 148px; height: 148px;
+      width: 108px; height: 108px;
       border-radius: 50%;
       overflow: hidden;
-      margin-bottom: 20px;
-      box-shadow: 0 8px 32px rgba(122,0,199,0.28);
       background: var(--branco);
-      padding: 8px;
-      flex-shrink: 0;
+      padding: 6px;
+      box-shadow: 0 8px 28px rgba(122,0,199,0.22);
+      margin-bottom: 30px;
     }
+    .hero-logo img { width: 100%; height: 100%; object-fit: contain; }
 
-    .hero-logo img {
-      width: 100%; height: 100%;
-      object-fit: contain;
-    }
-
-    .hero-clinica-nome {
-      font-size: 12px;
-      font-weight: 700;
-      color: var(--prata);
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-
-    .hero h1 {
-      font-size: 50px;
-      font-weight: 900;
+    .herox-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: #fff;
+      border: 1px solid var(--borda);
+      border-radius: 999px;
+      padding: 7px 16px;
+      font-size: 13px;
+      font-weight: 600;
       color: var(--texto);
-      letter-spacing: -1.5px;
-      line-height: 1.14;
-      margin-bottom: 26px;
-      margin-top: 4px;
+      box-shadow: 0 4px 14px rgba(0,0,0,0.06);
+      margin-bottom: 20px;
     }
+    .herox-stars { color: #F5A623; letter-spacing: 1px; font-size: 13px; }
 
-    .br-mob { display: none; }
-
-    .hero h1 .h1-destaque {
+    .herox-h1 {
+      font-size: 52px;
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -1.5px;
+      color: var(--texto);
+      margin-bottom: 16px;
+    }
+    .herox-h1 .h1-destaque {
       background: var(--gradiente-destaque);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
-    .hero-btns {
+    .herox-sub {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--cinza);
+      line-height: 1.6;
+      max-width: 500px;
+      margin-bottom: 30px;
+    }
+
+    .br-mob { display: none; }
+
+    .herox-cta {
       display: flex;
-      flex-direction: column;
-      align-items: stretch;
-      gap: 10px;
-      width: 100%;
-      max-width: 420px;
+      gap: 14px;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      margin-bottom: 0;
+    }
+    .herox-cta-main { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+    .herox-cta .btn-wpp { width: auto; padding: 16px 30px; }
+    .herox-resposta { font-size: 13px; color: var(--cinza); font-weight: 500; text-align: center; }
+
+    .herox-right { position: relative; min-height: 460px; }
+
+    .herox-card {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: #fff;
+      border-radius: 16px;
+      padding: 12px 16px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+      z-index: 3;
+    }
+    .herox-card-ico {
+      width: 38px; height: 38px;
+      border-radius: 10px;
+      background: var(--roxo-suave);
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .herox-card-ico svg {
+      width: 20px; height: 20px;
+      stroke: var(--marca); fill: none; stroke-width: 2;
+      stroke-linecap: round; stroke-linejoin: round;
+    }
+    .herox-card strong { display: block; font-size: 14px; font-weight: 800; color: var(--texto); line-height: 1.2; }
+    .herox-card span { font-size: 12px; color: var(--cinza); }
+    .herox-card-top    { top: 38%; right: -20%; animation: flutuar 3.6s ease-in-out infinite; }
+    .herox-card-bottom { bottom: 6%; left: -6%; animation: flutuar 4.2s ease-in-out infinite; animation-delay: -1.6s; }
+
+    .herox-foto-mobile { display: none; }
+
+    @keyframes flutuar {
+      0%, 100% { transform: translateY(0); }
+      50%      { transform: translateY(-9px); }
     }
 
     .btn-wpp {
@@ -254,39 +301,45 @@
     .btn-wpp:hover { background: var(--verde-wpp-hover); transform: translateY(-2px); }
     .btn-wpp svg { width: 20px; height: 20px; fill: white; flex-shrink: 0; }
 
-    .hero-resposta {
-      font-size: 13px;
-      color: var(--cinza);
-      font-weight: 500;
-      text-align: center;
-    }
-
     /* STATS */
     .stats {
       background: var(--gradiente);
-      padding: 28px 48px;
+      padding: 22px 0;
+      overflow: hidden;
     }
 
-    .stats-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      align-items: stretch;
+    .stats-track {
+      display: flex;
+      align-items: center;
+      width: max-content;
+      animation: marquee 34s linear infinite;
     }
 
-    .stat {
-      text-align: center;
-      padding: 8px 16px;
-      border-right: 1px solid rgba(255,255,255,0.18);
+    .stats-item {
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
+      text-align: center;
+      padding: 0 48px;
+      white-space: nowrap;
+      flex-shrink: 0;
     }
-    .stat:last-child { border-right: none; }
-    .stat-num   { font-size: 26px; font-weight: 900; color: var(--verde-claro); letter-spacing: -1px; }
+
+    .stats-divider {
+      width: 1px;
+      height: 36px;
+      background: rgba(255,255,255,0.30);
+      flex-shrink: 0;
+    }
+
+    .stat-num   { font-size: 24px; font-weight: 900; color: var(--verde-claro); letter-spacing: -0.8px; line-height: 1.15; }
     .stat-label { font-size: 12px; color: rgba(255,255,255,0.80); margin-top: 4px; font-weight: 500; }
+
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
 
     /* DEPOIMENTOS */
     .sec-depoi {
@@ -625,20 +678,40 @@
       nav { padding: 12px 20px; }
       nav .nav-nome, nav .nav-badge { display: none; }
 
-      .hero { min-height: calc(100svh - 96px); padding: 36px 20px 36px; }
-      .hero h1 { font-size: 35px; letter-spacing: -1px; }
       .br-mob { display: inline; }
       .br-desk { display: none; }
-      .hero-logo { width: 118px; height: 118px; margin-bottom: 16px; }
-      .hero-btns { max-width: 100%; }
 
-      .stats { padding: 0 20px; }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
-      .stat { padding: 20px 12px; border-right: 1px solid rgba(255,255,255,0.18); border-bottom: 1px solid rgba(255,255,255,0.18); }
-      .stat:nth-child(2) { border-right: none; }
-      .stat:nth-child(3) { border-bottom: none; }
-      .stat:nth-child(4) { border-right: none; border-bottom: none; }
+      .herox {
+        min-height: calc(100svh - 96px);
+        background: var(--branco);
+        padding: 28px 20px 0;
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+      }
+      .herox-inner { grid-template-columns: 1fr; gap: 0; text-align: center; }
+      .herox-left { display: flex; flex-direction: column; align-items: center; }
+      .hero-logo { width: 96px; height: 96px; margin-bottom: 26px; }
+      .herox-badge { margin-bottom: 16px; }
+      .herox-h1 { font-size: 40px; letter-spacing: -1.2px; margin-bottom: 14px; }
+      .herox-sub { font-size: 15px; margin: 0 auto 24px; }
+      .herox-right { display: none; }
+      .herox-cta { flex-direction: column; align-items: stretch; width: 100%; max-width: 360px; margin: 0 auto; }
+      .herox-cta-main { width: 100%; }
+      .herox-cta .btn-wpp { width: 100%; }
+      .herox-foto-mobile {
+        display: block;
+        width: calc(100% + 40px);
+        aspect-ratio: 1080 / 1080;
+        object-fit: cover;
+        object-position: center bottom;
+        margin: auto -20px 0;
+      }
+
+      .stats { padding: 18px 0; }
+      .stats-item { padding: 0 28px; }
       .stat-num { font-size: 20px; }
+      .stats-track { animation-duration: 24s; }
 
       .sec-depoi { padding: 56px 0; }
       .sec-depoi-inner { padding: 0 20px; text-align: center; }
@@ -678,7 +751,7 @@
     }
 
     @media (max-width: 420px) {
-      .hero h1 { font-size: 30px; }
+      .herox-h1 { font-size: 35px; }
     }
   </style>
 </head>
@@ -709,45 +782,92 @@
 </nav>
 
 <!-- HERO -->
-<div class="hero">
-  <div class="hero-content">
-    <div class="hero-logo">
-      <img src="logo.webp" alt="Hospital Veterinário São Lázaro 24h" decoding="async" loading="eager" width="148" height="148" />
+<div class="herox">
+  <div class="herox-inner">
+    <div class="herox-left">
+      <div class="hero-logo">
+        <img src="logo.webp" alt="Hospital Veterinário São Lázaro 24h" width="108" height="108" decoding="async" loading="eager" />
+      </div>
+      <div class="herox-badge">
+        <span class="herox-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <span>Aberto 24 horas &middot; Volta Redonda/RJ</span>
+      </div>
+      <h1 class="herox-h1"><span class="h1-destaque">Hospital Veterinário<br class="br-mob" /> 24h</span><br class="br-desk" /> em Volta Redonda</h1>
+      <p class="herox-sub">A saúde do seu pet é nossa prioridade!</p>
+      <div class="herox-cta">
+        <div class="herox-cta-main">
+          <a href="https://wa.me/5524992757156?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." class="btn-wpp">
+            <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+            Atendimento Imediato
+          </a>
+          <p class="herox-resposta">⚡ Resposta em 2 minutos</p>
+        </div>
+      </div>
     </div>
-    <p class="hero-clinica-nome">São Lázaro</p>
-    <h1>
-      <span class="h1-destaque">Hospital Veterinário<br class="br-mob" /> 24h</span><br class="br-desk" />
-      em Volta Redonda
-    </h1>
-    <div class="hero-btns">
-      <a href="https://wa.me/5524992757156?text=Ol%C3%A1%20encontrei%20voc%C3%AAs%20pelo%20Google%2C%20gostaria%20de%20atendimento." class="btn-wpp">
-        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        Atendimento Imediato
-      </a>
-      <p class="hero-resposta">⚡ Resposta em 2 minutos</p>
+    <div class="herox-right">
+      <div class="herox-card herox-card-top">
+        <div class="herox-card-ico">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <div>
+          <strong>24 horas, todos os dias</strong>
+          <span>Equipe sempre de plantão</span>
+        </div>
+      </div>
+      <div class="herox-card herox-card-bottom">
+        <div class="herox-card-ico">
+          <svg viewBox="0 0 24 24"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"/></svg>
+        </div>
+        <div>
+          <strong>+30 anos de cuidado</strong>
+          <span>Referência em Volta Redonda</span>
+        </div>
+      </div>
     </div>
   </div>
+  <img class="herox-foto-mobile" src="bg-mobile.webp" alt="Equipe do Hospital Veterinário São Lázaro com um pet" loading="eager" decoding="async" />
 </div>
 
 <!-- STATS -->
 <div class="stats">
-  <div class="stats-inner">
-    <div class="stat">
-      <div class="stat-num">24h</div>
-      <div class="stat-label">Aberto todos os dias</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">+30 anos</div>
-      <div class="stat-label">De experiência</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num" style="font-size:18px;letter-spacing:0;">Referência</div>
-      <div class="stat-label">Na região</div>
-    </div>
-    <div class="stat">
-      <div class="stat-num">TOP #1</div>
-      <div class="stat-label">da região</div>
-    </div>
+  <div class="stats-track">
+    <div class="stats-item"><div class="stat-num">24h</div><div class="stat-label">Aberto todos os dias</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">+30 anos</div><div class="stat-label">De experiência</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">TOP #1</div><div class="stat-label">da região</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">24h</div><div class="stat-label">Aberto todos os dias</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">+30 anos</div><div class="stat-label">De experiência</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">TOP #1</div><div class="stat-label">da região</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">24h</div><div class="stat-label">Aberto todos os dias</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">+30 anos</div><div class="stat-label">De experiência</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">TOP #1</div><div class="stat-label">da região</div></div>
+    <div class="stats-divider"></div>
+    <!-- cópia para loop contínuo -->
+    <div class="stats-item"><div class="stat-num">24h</div><div class="stat-label">Aberto todos os dias</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">+30 anos</div><div class="stat-label">De experiência</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">TOP #1</div><div class="stat-label">da região</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">24h</div><div class="stat-label">Aberto todos os dias</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">+30 anos</div><div class="stat-label">De experiência</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">TOP #1</div><div class="stat-label">da região</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">24h</div><div class="stat-label">Aberto todos os dias</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">+30 anos</div><div class="stat-label">De experiência</div></div>
+    <div class="stats-divider"></div>
+    <div class="stats-item"><div class="stat-num">TOP #1</div><div class="stat-label">da região</div></div>
+    <div class="stats-divider"></div>
   </div>
 </div>
 
